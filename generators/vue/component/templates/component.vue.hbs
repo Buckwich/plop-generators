@@ -1,0 +1,25 @@
+<template>
+  <div class="{{kebabCase name}}">
+    <h1>{{ title }}</h1>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+
+interface Props {
+  title?: string;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  title: '{{pascalCase name}}',
+});
+
+const message = ref('');
+</script>
+
+<style scoped>
+.{{kebabCase name}} {
+  /* Add component styles here */
+}
+</style>

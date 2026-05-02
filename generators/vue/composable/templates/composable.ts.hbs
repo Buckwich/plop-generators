@@ -1,0 +1,33 @@
+import { ref, computed } from 'vue';
+
+/**
+ * {{pascalCase name}} composable
+ * @description Add description here
+ */
+export function {{camelCase name}}() {
+  const isLoading = ref(false);
+  const error = ref<Error | null>(null);
+  const data = ref(null);
+
+  const isSuccess = computed(() => !error.value);
+
+  const execute = async () => {
+    isLoading.value = true;
+    error.value = null;
+    try {
+      // Add your logic here
+    } catch (err) {
+      error.value = err instanceof Error ? err : new Error(String(err));
+    } finally {
+      isLoading.value = false;
+    }
+  };
+
+  return {
+    isLoading,
+    error,
+    data,
+    isSuccess,
+    execute,
+  };
+}

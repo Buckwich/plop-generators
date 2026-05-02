@@ -1,0 +1,55 @@
+import { defineStore } from 'pinia';
+import { ref, computed } from 'vue';
+
+export const {{camelCase name}}Store = defineStore('{{camelCase name}}', () => {
+  // State
+  const items = ref<any[]>([]);
+  const isLoading = ref(false);
+  const error = ref<string | null>(null);
+
+  // Getters
+  const itemCount = computed(() => items.value.length);
+  const hasError = computed(() => error.value !== null);
+
+  // Actions
+  const fetchItems = async () => {
+    isLoading.value = true;
+    error.value = null;
+    try {
+      // Add your fetch logic here
+      // const response = await fetch('/api/items');
+      // items.value = await response.json();
+    } catch (err) {
+      error.value = err instanceof Error ? err.message : 'An error occurred';
+    } finally {
+      isLoading.value = false;
+    }
+  };
+
+  const addItem = (item: any) => {
+    items.value.push(item);
+  };
+
+  const removeItem = (index: number) => {
+    items.value.splice(index, 1);
+  };
+
+  const clearItems = () => {
+    items.value = [];
+  };
+
+  return {
+    // State
+    items,
+    isLoading,
+    error,
+    // Getters
+    itemCount,
+    hasError,
+    // Actions
+    fetchItems,
+    addItem,
+    removeItem,
+    clearItems,
+  };
+});
