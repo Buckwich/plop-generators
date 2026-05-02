@@ -1,0 +1,24 @@
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class {{pascalCase name}}Service {
+  findAll() {
+    return [];
+  }
+
+  findOne(id: string) {
+    return { id };
+  }
+
+  create(createDto: any) {
+    return createDto;
+  }
+
+  update(id: string, updateDto: any) {
+    return { id, ...updateDto };
+  }
+
+  remove(id: string) {
+    return { id };
+  }
+}

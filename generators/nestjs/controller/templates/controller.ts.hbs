@@ -1,0 +1,29 @@
+import { Controller, Get, Post, Put, Delete, Body, Param } from '@nestjs/common';
+
+@Controller('{{route}}')
+export class {{pascalCase name}}Controller {
+  @Get()
+  findAll() {
+    return [];
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return { id };
+  }
+
+  @Post()
+  create(@Body() createDto: any) {
+    return createDto;
+  }
+
+  @Put(':id')
+  update(@Param('id') id: string, @Body() updateDto: any) {
+    return { id, ...updateDto };
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return { id };
+  }
+}
