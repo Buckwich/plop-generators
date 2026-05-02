@@ -1,0 +1,15 @@
+import { renderHook, act } from '@testing-library/react';
+import { {{camelCase name}} } from './{{camelCase name}}';
+
+describe('{{camelCase name}}', () => {
+  it('should be defined', () => {
+    expect({{camelCase name}}).toBeDefined();
+  });
+
+  it('should return expected shape', () => {
+    const { result } = renderHook(() => {{camelCase name}}());
+    expect(result.current).toHaveProperty('data');
+    expect(result.current).toHaveProperty('loading');
+    expect(result.current).toHaveProperty('error');
+  });
+});

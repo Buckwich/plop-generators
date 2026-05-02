@@ -2,6 +2,10 @@ module.exports = function (plop) {
   // Load Angular generators
   plop.load('./generators/angular/component');
 
+  // Load React generators
+  plop.load('./generators/react/component');
+  plop.load('./generators/react/hook');
+
   // Load Vue generators
   plop.load('./generators/vue/component');
   plop.load('./generators/vue/composable');

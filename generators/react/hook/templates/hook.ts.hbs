@@ -1,0 +1,19 @@
+import { useState, useCallback, useEffect } from 'react';
+
+interface {{pascalCase name}}Result {
+  data: any;
+  loading: boolean;
+  error: Error | null;
+}
+
+export function {{camelCase name}}(): {{pascalCase name}}Result {
+  const [data, setData] = useState<any>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
+
+  useEffect(() => {
+    // Implement hook logic here
+  }, []);
+
+  return { data, loading, error };
+}
